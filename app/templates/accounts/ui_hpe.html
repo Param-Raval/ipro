@@ -1,0 +1,101 @@
+<head>
+	<title>ShadowSight</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="static/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" hrexf="static/assets/libs/bootstrap/dist/css/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/util.css">
+	<link rel="stylesheet" type="text/css" href="static/assets/libs/bootstrap/dist/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<span class="contact100-form-title">PoseX</span>
+			<form class="contact100-form validate-form" action="/upload_hpe" method="post" enctype="multipart/form-data">
+				<div class="wrap-input100 validate-input" data-validate = "Valid image file is required: jpg or png">
+					<span class="label-input100">Select Only One Image File</span>
+					<input id="inp_file" type="file" name="file" accept="image/*">
+					<input id="inp_img" type="hidden" name="img" value="" accept="image/*">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div>
+					<img id='image-picked' class='no-display'>
+				</div>
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<!--button class should be copyright @pankajmathur.com contact100-form-btn -->
+						<button type = "button" id = "submit_btn" class="contact100-form-btn">
+							<span>
+								Upload & Analyze Image
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+				<div>
+				
+		      	{% if predpath %}
+		      		<span class="contact100-form-title">Pose Estimation</span>
+		      		<img src="{{predpath}}" width="85%">
+
+		      		<a href="/display/{{fname}}" target="blank"><button type = "button" id = "submit_btn" class="contact100-form-btn">
+		      			<span>
+		      			Download PNG file
+		      			<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+		      			</span>
+		      		</button></a>
+		      	{% endif %}
+		        </div>
+				
+
+			</form>
+			<!-- <div>
+			 {% if filename %}
+			 <span class="contact100-form-title">Input Image</span>
+		      <img src="{{filename}}" width="85%">
+		      <div>
+		      	{% if predpath %}
+		      		<span class="contact100-form-title">Shadow Removal</span>
+		      		<img src="{{predpath}}" width="85%">
+		      		<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+					<div class="contact100-form-bgbtn"></div>
+						
+		      		<a href="/display/{{fname}}" target="blank"><button type = "button" id = "submit_btn" class="contact100-form-btn">
+		      			<span>
+		      			Download PNG file
+		      			<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+		      		</span>
+		      		</button></a>
+		      	</div>
+		      </div>
+		      	
+		      	{% endif %}
+		      </div>
+		     {% endif %}
+		 	</div> -->
+		</div>
+	</div>
+	
+<script src="static/assets/libs/bootstrap/dist/js/utility.js"></script>
+</body>
+</html>

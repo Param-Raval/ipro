@@ -1,0 +1,190 @@
+{% extends "layouts/base.html" %}
+
+
+{% block title %} CloudCV: Visual Question Answering {% endblock %} 
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+  <style>
+    .hiddenDiv {
+      display: none;
+    }
+
+    .button_link {
+      cursor: pointer;
+    }
+
+    .demo_img {
+      height: 33% !important;
+      width:33%;
+      padding: 6px;
+
+    }
+
+    .demo_img:hover {
+      border: 6px solid black;
+      padding: 0px;
+      cursor: pointer;
+    }
+
+    #show-demo-images-btn {
+      text-align: right;
+    }
+
+    @media(max-width: 540px) {
+      #show-demo-images-btn {
+        text-align: center;
+
+      }
+    }
+
+    .dz-upload {
+      display: block;
+      background-color: red;
+      height: 10px;
+      width: 0%;
+    }
+
+    input[type="radio"] {
+      vertical-align: super;
+      width: 5%;
+      height: 2%;
+      cursor: pointer;
+    }
+
+    .border-bottom {
+      border-bottom: 1px solid #eee;
+    }
+
+    .choose-model {
+      padding-bottom: 9px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+
+ 
+  <div class=" container">
+    <div class="page-header">
+      <h2>Try ShadowSight on Sample Images</h2>
+      <br>
+      <div class="row">
+        <div class="col-md-8 col-xs-12">
+          <font size="4">Click on one of these images to send it to our servers (Or <a class="button_link"
+              onclick="scrollToElement($('#userImages'))">upload</a>
+            your own images below)</font>
+        </div>
+        <div id="show-demo-images-btn" class="col-md-4">
+          <button class="btn btn-info" onclick="clickButton()">Show Demo Images</button>
+        </div>
+      </div>
+      <div class="row hiddenDiv demoImages" id="demoImages1">
+        
+        {% for image in images %}
+       
+        <a href="{{ url_for('selectimage', selectedImage='') }}{{image}}">
+        <img src="/static/assets/img/backgrounds/{{image}}" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+        {% endfor %}
+        
+      </div>
+      <div class="row hiddenDiv randomImages" id="demoImages2">
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-4.jpg">
+          <img src="/static/assets/img/backgrounds/img-4.jpg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-5.jpg">
+          <img src="/static/assets/img/backgrounds/img-5.jpg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-6.jpg">
+          <img src="/static/assets/img/backgrounds/img-6.jpg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>  
+        </a>
+
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-1.jpeg">      
+          <img src="/static/assets/img/backgrounds/img-1.jpeg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-2.jpeg">
+          <img src="/static/assets/img/backgrounds/img-2.jpeg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+
+        <a href="{{ url_for('selectimage', selectedImage='') }}img-3.jpg">
+          <img src="/static/assets/img/backgrounds/img-3.jpg" onclick="submitDemoImage(this.src)" class="demo_img col-md-4"></img>
+        </a>
+        
+   </div>
+  </div>
+  </div>
+
+  </div>
+
+  <script>
+    function scrollToElement(dstElement) {
+      try {
+        var scrollPixels = dstElement.offset().top - $(".navbar-fixed-top").height() - 30;
+        $('html, body').animate({
+          scrollTop: scrollPixels
+        }, 2000);
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+
+
+  </script>
+  <script>
+    function clickButton() 
+    {
+
+      var img1 = document.getElementById("demoImages1");
+      var img2 = document.getElementById("demoImages2");
+      //var img3 = document.getElementById("demoImages3");
+      //var img4 = document.getElementById("demoImages4");
+
+      if (img1.style.display === "none") {
+        img1.style.display = "block";
+        img2.style.display = "none";
+       // img3.style.display = "none";
+        //img4.style.display = "none";
+      } else {
+        img2.style.display = "block";
+        img1.style.display = "none";
+        //img3.style.display = "inline-block";
+        //img4.style.display = "inline-block";
+      }
+        
+    } 
+  </script>
+
+
+  <script type="text/javascript">
+    $("#question").keypress(function (event) {
+      if (event.which == 13) {
+        if ($("#question").val().length) {
+          submitImageForVqa();
+          console.log("submited the form");
+        }
+      }
+    });
+  </script>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', '<google-analytics-id>', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+
+
+{% endblock content %}
+{% block javascripts %}{% endblock javascripts %} 

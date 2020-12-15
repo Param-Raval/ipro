@@ -1,0 +1,27 @@
+
+
+{% block content %}
+<div>
+    
+    <form action="/checkout.html" method="post">
+
+        {% if pland %}
+        <h2>Buy for {{pland.price}}</h2>
+        <h3>{{pland.pname}}</h3>
+        <h3>{{pland.price}}</h3>
+        <h3>{{pland.feat}}</h3>
+        {% endif %}
+
+        <script
+            src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            data-key="pk_test_51Hhvu4Gqfu9fIci4ulxp5s2Rx51IBlb6J3nf1mhfHcrdmv5pTimq9e31mjRGcrw9M0mpifD7oVchuAn03DoVJycR00IFXDPgFo"
+            data-description="A Flask Charge"
+            data-amount="{{pland.price}}"
+            data-locale="auto">
+        </script>
+
+    </form>
+</div>
+{% endblock %}
+

@@ -1,0 +1,87 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Visual Question Answering {% endblock %} 
+
+{% block stylesheets %}
+<style>
+	#upload{
+		margin-bottom: 30px;
+	}
+	img{
+		height:80%;
+		width:90%;
+		padding-top: 20px;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	#ques{
+		width: 400px;
+
+	}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<section>
+	<div class="container d-flex flex-column">
+		<div class="row align-items-center justify-content-center min-vh-100">
+			<div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+                 <div class="card shadow zindex-100 mb-0">
+                    <div class="card-body px-md-5 py-5">
+                        <div class="mb-5">
+						<h6 class="h3">
+                                    <a target="_blank" rel="noopener noreferrer"
+                                       class="text-primary"
+                                       href="https://appseed.us/boilerplate-code/flask-boilerplate">Visual Question Answering</a> 
+                        </h6>
+                    	</div>
+			<form class="mt-4" action="/upload" method="post">
+				<div class="form-group" data-validate = "Valid image file is required: jpg or png">
+					<label class="form-control-label">Upload an Image</label>
+					<div class="input-group">
+                 
+						<input id="upload" type='file' onchange="readURL(this);" />
+						<br>
+						<input type='text' id="ques" alt="Enter your question here" placeholder="Enter your question here" />
+						<img id="blah" />
+					</div>
+				</div>
+				<div>
+					<img id='image-picked' class='no-display'>
+				</div>
+				<div class="mt-4">
+					<button type="submit" name="register" class="btn btn-block btn-primary">Test Image</button>
+				</div>
+
+			</form>
+			</div>
+			
+		     <div class="card-footer px-md-5"><small>Test on our Data?</small>
+                            <a href="../image-grid.html" class="small font-weight-bold">Test</a>
+              
+		 	</div>
+		   </div>
+		  </div>
+		</div>
+	</div>
+</section>	
+{% endblock content %}
+
+
+{% block javascripts %}
+<script>
+	     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
+{% endblock javascripts %} 

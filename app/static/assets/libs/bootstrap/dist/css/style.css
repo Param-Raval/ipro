@@ -1,0 +1,55 @@
+.brand-logo{
+	font-weight: 300;
+}
+
+.demo_img{
+	height: 300px !important;
+	padding: 6px;
+}
+
+#inputImage{
+	max-width: 100% !important;
+}
+
+#result{
+	font-family: Roboto !important;
+}
+
+body {
+  padding-top: 60px;
+}
+
+.preview img {
+    max-height:50px;
+}
+
+.focus-input100 {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-input100::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #7f7f7f;
+}
+
+.no-display {
+  display: none;
+}

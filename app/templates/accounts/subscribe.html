@@ -1,0 +1,131 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Subscribe {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+
+{% block stylesheets %}
+<style type="text/css">
+    .grow {
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  height: 49px;
+  width: 22%;
+  margin: 5px 1% 5px 1%;
+  float: left;
+  position: relative;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  text-align: center;
+  overflow: hidden;
+}
+.grow:hover {
+  height: 145px;
+}
+.auto {
+  display: block;
+  margin: 20px;
+  width: 250px;
+  height: 30px;
+  overflow: hidden;
+  text-align: center;
+  transition: all .5s ease;
+}
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <ul class=flashes>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+      {% endif %}
+    {% endwith %}
+    <!-- Main content -->
+    <section>
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+                    <div class="card shadow zindex-100 mb-0">
+                        <div class="card-body px-md-5 py-5">
+                            <div class="mb-5">
+                                <h6 class="h3">
+                                    <a target="_blank" rel="noopener noreferrer"
+                                       class="text-primary">Select a Subscription Plan</a>
+                                </h6>
+                                
+                            </div>
+                            <span class="clearfix"></span>
+                            <form method="post" action="/plans" class="mt-4">
+
+                                <div class="row">
+                                   <div class="col-sm-4">
+                                        <div class="card" style="width: 20rem;">
+                                            <div class="auto">
+                                                <h4 class="card-title">Tier 1</h4>
+                                                <p>$5 for 5 Images. </p>
+                                               
+                                                <button type="submit" name="plan" value="tier1" class="btn btn-block btn-primary">Select Tier 1</button>
+                                                   
+                                                </div>
+
+                                        </div>
+                                        <div class="card" style="width: 20rem;">
+                                            <div class="auto">
+                                                <h4 class="card-title"><a href = "subscribe/tier2">Tier 2 </a></h4>
+                                                <p>$10 for 10 Images. </p>
+                                               
+                                                <button type="submit" name="plan" value="tier2" class="btn btn-block btn-primary">Select Tier 2</button>
+                                                   
+                                                </div>
+
+                                        </div>
+                                        <div class="card" style="width: 20rem;">
+                                            <div class="auto">
+                                                <h4 class="card-title"><a href = "subscribe/tier3">Tier 3 </a></h4>
+                                                <p>$15 for 15 Images. </p>
+
+
+                                                <button type="submit" name="plan" value="tier3" class="btn btn-block btn-primary">Select Tier 3</button>
+                                               
+                                                   
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer px-md-5"><small>*without tax</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script type="text/javascript">
+    if (document.getElementsByClassName("auto")) {
+  var autos = document.getElementsByClassName("auto");
+  for (var i=0; i<autos.length; i++) {
+    autos[i].addEventListener("mouseover", autoOver);
+    autos[i].addEventListener("mouseout", autoOut);
+  }
+}
+
+function autoOver() {
+  this.style.height = this.scrollHeight + "px";
+}
+
+function autoOut() {
+  this.style.height = "20px";
+}
+</script>
+{% endblock javascripts %}

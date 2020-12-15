@@ -1,0 +1,52 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}
+    
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Main content -->
+    <section>
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+                    <div class="card shadow zindex-100 mb-0">
+                        <div class="card-body px-md-5 py-5">
+                            <div class="mb-5">
+                                <h6 class="h3">
+                                    <a target="_blank" rel="noopener noreferrer"
+                                       class="text-primary"
+                                       href="https://appseed.us/boilerplate-code/flask-boilerplate">Choose one of the three sevices available </a>
+                                </h6>
+                                
+                            </div>
+                            <span class="clearfix"></span>
+                            <form method="get" action="" class="mt-4">
+
+                                <div class="mt-4">
+                                    <button type="submit" name="ss" class="btn btn-block btn-primary" formaction="../ui.html">Shadow Sight</button>
+
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" name="hpe" class="btn btn-block btn-primary" formaction="../ui_hpe.html">Human Pose Estimation</button>
+                                </div>
+                                <div class="mt-4">
+                                    <button type="submit" name="vqa" class="btn btn-block btn-primary" formaction="../ui_vqa1.html">Visual Question Answering</button>
+                                </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

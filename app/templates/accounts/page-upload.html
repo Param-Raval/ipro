@@ -1,0 +1,63 @@
+{% extends "layouts/base-fullscreen.html" %}
+
+{% block title %} Upload Images {% endblock %} 
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+   
+    <section>
+        <div class="container d-flex flex-column">
+            <div class="row align-items-center justify-content-center min-vh-100">
+                <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+                    <div class="card shadow zindex-100 mb-0">
+                        <div class="card-body px-md-5 py-5">
+                            <div class="mb-5">
+                                <h6 class="h3">
+                                    <a target="_blank" rel="noopener noreferrer"
+                                       class="text-primary"
+                                       href="https://appseed.us/boilerplate-code/flask-boilerplate">ShadowSight</a> 
+                                </h6>
+                            </div>
+                            <span class="clearfix"></span>
+                            <form method="post" action="/page-upload.html" class="mt-4">
+
+                                
+
+                                <div class="form-group">
+                                    <label class="form-control-label">Upload an Image</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <input id="inp_file" type="file" name="file1" accept="image/*">
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                        <img id='image-picked' class='no-display'>
+                                </div>
+                                
+                               
+                                <div class="mt-4">
+                                    <button type="submit" name="register" class="btn btn-block btn-primary">Test Image</button>
+                                </div>
+                            </form>
+                        </div>
+                       
+                        <div class="card-footer px-md-5"><small>Test on our Data?</small>
+                            <a href="{{ url_for('upload_image') }}" class="small font-weight-bold">Test</a>
+                        </div>
+                        
+                    </div>
+                
+               </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
+
+
+{% block javascripts %}{% endblock javascripts %} 
