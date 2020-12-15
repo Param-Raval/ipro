@@ -12,7 +12,7 @@ Note: You don't necessarily need GPUs since this project uses pretrained models 
 ### Download Pre-trained models
 You can download checkpoints for ShadowSight from [here](https://drive.google.com/drive/folders/1J1l21k5AoUXHxic-Bj3eXBFP--YzjFXO?usp=sharing). Download and place them inside _app_ in a folder named _**checkpoints**_.
 
-For the rest of the services, download the pre-trained weights from here (download the entire folder) and place them inside _app_ in a folder named _**pickles**_.
+For the rest of the services, download the pre-trained weights from [here](https://drive.google.com/drive/folders/1SwR0Qz-HbGF6PNxRg1n24YXJmrMii5Jo?usp=sharing) (download the entire folder) and place them inside _app_ in a folder named _**pickles**_.
 
 ### Run App
 `python run.py`
